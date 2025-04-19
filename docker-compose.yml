@@ -1,0 +1,16 @@
+services:
+  backend:
+    image: 183494329089.dkr.ecr.us-east-1.amazonaws.com/backendrepo:latest
+    ports:
+      - "5000:5000"
+    # Uncomment and edit the next line if you have a backend.env file with environment variables
+    # env_file: ./backend.env
+    restart: always
+
+  frontend:
+    image: 183494329089.dkr.ecr.us-east-1.amazonaws.com/frontendrepo:latest
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    restart: always
